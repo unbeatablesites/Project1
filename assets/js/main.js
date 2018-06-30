@@ -169,4 +169,13 @@ alert("Group 2 Project");
 
 })(jQuery);
 
-// ROBBY IS THE BEST
+// DB calls 
+  var config = {
+    apiKey: "AIzaSyC14RU7IXMdMvaROiAcm8xCUBFWfjjVtcc",
+    authDomain: "moment-f308e.firebaseapp.com",
+    databaseURL: "https://moment-f308e.firebaseio.com",
+    projectId: "moment-f308e",
+    storageBucket: "moment-f308e.appspot.com",
+    messagingSenderId: "164636985947"
+  };
+  firebase.initializeApp(config);
