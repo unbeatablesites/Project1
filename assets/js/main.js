@@ -15,16 +15,23 @@
 for (var i = 0; i < response._embedded.events.length; i++) {
 
             // var newB = $("<button>");
-            var replace = $("<div><button>View Info</div>");
+            var replace = $("<img class='size'>");
+            var div = $("<div><button>View Info</div>");
             var newP = $("<p>");
+            // var newpic = $("<img/>");
+          
             
-            newP.text(response._embedded.events[i].name);
+            newP.html(response._embedded.events[i].name +" - "+ response._embedded.events[i].dates.start.dateTime+" -  Tix start at: $"+response._embedded.events[i].priceRanges[0].min);
+            replace.attr("src", response._embedded.events[i].images[0].url);
             replace.append(newP);
+            div.append(newP);
+
+            // console.log(response._embedded.events[i].images[6].url)
             // replace.append(newP,newB);
 
 
 
-            $("#movies").append(replace);
+            $("#movies").append(replace,div);
 
         }
 
