@@ -64,4 +64,4 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 
       }
 
-})();
+
