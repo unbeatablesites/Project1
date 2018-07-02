@@ -1,170 +1,67 @@
-alert("Group 2 Project");
-// Every thiing under this point is used for the mobile responsiveness of the website 
-(function($) {
+(function(){
+var url= "http://app.ticketmaster.com/discovery/v2/events.json?city=atlanta&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
 
-	var	$window = $(window),
-		$body = $('body'),
-		$html = $('html');
+    $.get(url).done(function(response){
+      console.log(response);
+      success(response);
+    });
 
-	// Breakpoints.
-		breakpoints({
-			large:   [ '981px',  '1680px' ],
-			medium:  [ '737px',  '980px'  ],
-			small:   [ '481px',  '736px'  ],
-			xsmall:  [ null,     '480px'  ]
-		});
+      function success(response){
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
 
-	// Touch mode.
-		if (browser.mobile) {
+for (var i = 0; i < response._embedded.events.length; i++) {
 
-			var $wrapper;
+            // var newB = $("<button>");
+            var replace = $("<div><button>View Info</div>");
+            var newP = $("<p>");
+            
+            newP.text(response._embedded.events[i].name);
+            replace.append(newP);
+            // replace.append(newP,newB);
 
-			// Create wrapper.
-				$body.wrapInner('<div id="wrapper" />');
-				$wrapper = $('#wrapper');
 
-				// Hack: iOS vh bug.
-					if (browser.os == 'ios')
-						$wrapper
-							.css('margin-top', -25)
-							.css('padding-bottom', 25);
 
-				// Pass scroll event to window.
-					$wrapper.on('scroll', function() {
-						$window.trigger('scroll');
-					});
+            $("#movies").append(replace);
 
-			// Scrolly.
-				$window.on('load.hl_scrolly', function() {
+        }
 
-					$('.scrolly').scrolly({
-						speed: 1500,
-						parent: $wrapper,
-						pollOnce: true
-					});
 
-					$window.off('load.hl_scrolly');
 
-				});
 
-			// Enable touch mode.
-				$html.addClass('is-touch');
 
-		}
-		else {
 
-			// Scrolly.
-				$('.scrolly').scrolly({
-					speed: 1500
-				});
 
-		}
 
-	// Header.
-		var $header = $('#header'),
-			$headerTitle = $header.find('header'),
-			$headerContainer = $header.find('.container');
 
-		// Make title fixed.
-			if (!browser.mobile) {
 
-				$window.on('load.hl_headerTitle', function() {
 
-					breakpoints.on('>medium', function() {
+        // var output = document.getElementById('movies');
 
-						$headerTitle
-							.css('position', 'fixed')
-							.css('height', 'auto')
-							.css('top', '50%')
-							.css('left', '0')
-							.css('width', '100%')
-							.css('margin-top', ($headerTitle.outerHeight() / -2));
 
-					});
+        // output.innerHTML = response._embedded.events[0].name;
+        // output.innerHTML = response._embedded.events[1].name;
 
-					breakpoints.on('<=medium', function() {
 
-						$headerTitle
-							.css('position', '')
-							.css('height', '')
-							.css('top', '')
-							.css('left', '')
-							.css('width', '')
-							.css('margin-top', '');
 
-					});
 
-					$window.off('load.hl_headerTitle');
+        // // for (var i = 0; i < 20; i++ ){
 
-				});
+        //   var array = response._embedded.events.name
+        //   // console.log(response._embedded.events.name);
+        //   movies.innerHTML = response._embedded.events.name;
 
-			}
+        //   var array = document.getElementById('movies');
 
-		// Scrollex.
-			breakpoints.on('>small', function() {
-				$header.scrollex({
-					terminate: function() {
+        // };
+        
+         // var movie = $(response._embedded.events[0].name);
 
-						$headerTitle.css('opacity', '');
+         // $("#movies").append("<div>"+ movie +"<div/>");
 
-					},
-					scroll: function(progress) {
+       //    var $showEvents = $('movies');
 
-						// Fade out title as user scrolls down.
-							if (progress > 0.5)
-								x = 1 - progress;
-							else
-								x = progress;
+       // $('showEvents').append("<p>" + movie + "</p>");
 
-							$headerTitle.css('opacity', Math.max(0, Math.min(1, x * 2)));
+      }
 
-					}
-				});
-			});
-
-			breakpoints.on('<=small', function() {
-
-				$header.unscrollex();
-
-			});
-
-	// Main sections.
-		$('.main').each(function() {
-
-			var $this = $(this),
-				$primaryImg = $this.find('.image.primary > img'),
-				$bg,
-				options;
-
-			// No primary image? Bail.
-				if ($primaryImg.length == 0)
-					return;
-
-			// Create bg and append it to body.
-				$bg = $('<div class="main-bg" id="' + $this.attr('id') + '-bg"></div>')
-					.css('background-image', (
-						'url("assets/css/images/overlay.png"), url("' + $primaryImg.attr('src') + '")'
-					))
-					.appendTo($body);
-
-			// Scrollex.
-				$this.scrollex({
-					mode: 'middle',
-					delay: 200,
-					top: '-10vh',
-					bottom: '-10vh',
-					init: function() { $bg.removeClass('active'); },
-					enter: function() { $bg.addClass('active'); },
-					leave: function() { $bg.removeClass('active'); }
-				});
-
-		});
-
-})(jQuery);
+})();
