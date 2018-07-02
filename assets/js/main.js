@@ -1,5 +1,8 @@
-(function(){
-var url= "http://app.ticketmaster.com/discovery/v2/events.json?city=atlanta&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
+
+
+(function(load){
+  var search = prompt("Type the name of a city ");
+  var url= "http://app.ticketmaster.com/discovery/v2/events.json?city="+search+"&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
 
     $.get(url).done(function(response){
       console.log(response);
