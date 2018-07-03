@@ -53,7 +53,6 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 
 
 
-
         // // for (var i = 0; i < 20; i++ ){
 
         //   var array = response._embedded.events.name
