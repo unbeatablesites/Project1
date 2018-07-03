@@ -28,6 +28,10 @@ body {
 	line-height: 1;
 }
 
+button{
+	float: right;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -115,7 +119,7 @@ input, select, textarea {
 		font-family: "Raleway", "Helvetica", sans-serif;
 		font-size: 15pt;
 		font-weight: 400;
-		line-height: 1.75em;
+		line-height: 1.5em;
 	}
 
 	a {

@@ -1,181 +1,59 @@
-alert("Group 2 Project");
-// Every thiing under this point is used for the mobile responsiveness of the website 
-(function($) {
 
-	var	$window = $(window),
-		$body = $('body'),
-		$html = $('html');
 
-	// Breakpoints.
-		breakpoints({
-			large:   [ '981px',  '1680px' ],
-			medium:  [ '737px',  '980px'  ],
-			small:   [ '481px',  '736px'  ],
-			xsmall:  [ null,     '480px'  ]
-		});
+(function(load){
+  var search = prompt("Type the name of a city ");
+  var url= "http://app.ticketmaster.com/discovery/v2/events.json?city="+search+"&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+    $.get(url).done(function(response){
+      console.log(response);
+      success(response);
+    });
 
-	// Touch mode.
-		if (browser.mobile) {
+      function success(response){
 
-			var $wrapper;
 
-			// Create wrapper.
-				$body.wrapInner('<div id="wrapper" />');
-				$wrapper = $('#wrapper');
+for (var i = 0; i < response._embedded.events.length; i++) {
 
-				// Hack: iOS vh bug.
-					if (browser.os == 'ios')
-						$wrapper
-							.css('margin-top', -25)
-							.css('padding-bottom', 25);
+            // var newB = $("<button>");
+            var replace = $("<div><button>View Info</div>");
+            var newP = $("<p>");
+            
+            newP.text(response._embedded.events[i].name);
+            replace.append(newP);
+            // replace.append(newP,newB);
 
-				// Pass scroll event to window.
-					$wrapper.on('scroll', function() {
-						$window.trigger('scroll');
-					});
 
-			// Scrolly.
-				$window.on('load.hl_scrolly', function() {
 
-					$('.scrolly').scrolly({
-						speed: 1500,
-						parent: $wrapper,
-						pollOnce: true
-					});
+            $("#movies").append(replace);
 
-					$window.off('load.hl_scrolly');
+        }
 
-				});
+        // var output = document.getElementById('movies');
 
-			// Enable touch mode.
-				$html.addClass('is-touch');
 
-		}
-		else {
+        // output.innerHTML = response._embedded.events[0].name;
+        // output.innerHTML = response._embedded.events[1].name;
 
-			// Scrolly.
-				$('.scrolly').scrolly({
-					speed: 1500
-				});
 
-		}
 
-	// Header.
-		var $header = $('#header'),
-			$headerTitle = $header.find('header'),
-			$headerContainer = $header.find('.container');
+        // // for (var i = 0; i < 20; i++ ){
 
-		// Make title fixed.
-			if (!browser.mobile) {
+        //   var array = response._embedded.events.name
+        //   // console.log(response._embedded.events.name);
+        //   movies.innerHTML = response._embedded.events.name;
 
-				$window.on('load.hl_headerTitle', function() {
+        //   var array = document.getElementById('movies');
 
-					breakpoints.on('>medium', function() {
+        // };
+        
+         // var movie = $(response._embedded.events[0].name);
 
-						$headerTitle
-							.css('position', 'fixed')
-							.css('height', 'auto')
-							.css('top', '50%')
-							.css('left', '0')
-							.css('width', '100%')
-							.css('margin-top', ($headerTitle.outerHeight() / -2));
+         // $("#movies").append("<div>"+ movie +"<div/>");
 
-					});
+       //    var $showEvents = $('movies');
 
-					breakpoints.on('<=medium', function() {
+       // $('showEvents').append("<p>" + movie + "</p>");
 
-						$headerTitle
-							.css('position', '')
-							.css('height', '')
-							.css('top', '')
-							.css('left', '')
-							.css('width', '')
-							.css('margin-top', '');
+      }
+})();
 
-					});
-
-					$window.off('load.hl_headerTitle');
-
-				});
-
-			}
-
-		// Scrollex.
-			breakpoints.on('>small', function() {
-				$header.scrollex({
-					terminate: function() {
-
-						$headerTitle.css('opacity', '');
-
-					},
-					scroll: function(progress) {
-
-						// Fade out title as user scrolls down.
-							if (progress > 0.5)
-								x = 1 - progress;
-							else
-								x = progress;
-
-							$headerTitle.css('opacity', Math.max(0, Math.min(1, x * 2)));
-
-					}
-				});
-			});
-
-			breakpoints.on('<=small', function() {
-
-				$header.unscrollex();
-
-			});
-
-	// Main sections.
-		$('.main').each(function() {
-
-			var $this = $(this),
-				$primaryImg = $this.find('.image.primary > img'),
-				$bg,
-				options;
-
-			// No primary image? Bail.
-				if ($primaryImg.length == 0)
-					return;
-
-			// Create bg and append it to body.
-				$bg = $('<div class="main-bg" id="' + $this.attr('id') + '-bg"></div>')
-					.css('background-image', (
-						'url("assets/css/images/overlay.png"), url("' + $primaryImg.attr('src') + '")'
-					))
-					.appendTo($body);
-
-			// Scrollex.
-				$this.scrollex({
-					mode: 'middle',
-					delay: 200,
-					top: '-10vh',
-					bottom: '-10vh',
-					init: function() { $bg.removeClass('active'); },
-					enter: function() { $bg.addClass('active'); },
-					leave: function() { $bg.removeClass('active'); }
-				});
-
-		});
-
-})(jQuery);
-
-// DB calls 
-  var config = {
-    apiKey: "AIzaSyC14RU7IXMdMvaROiAcm8xCUBFWfjjVtcc",
-    authDomain: "moment-f308e.firebaseapp.com",
-    databaseURL: "https://moment-f308e.firebaseio.com",
-    projectId: "moment-f308e",
-    storageBucket: "moment-f308e.appspot.com",
-    messagingSenderId: "164636985947"
-  };
-  firebase.initializeApp(config);
