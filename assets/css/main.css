@@ -32,6 +32,11 @@ button{
 	float: right;
 }
 
+.size{
+	width: 300px;
+	height: 225px;
+}
+
 ol, ul {
 	list-style: none;
 }
