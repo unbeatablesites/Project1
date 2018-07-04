@@ -1,7 +1,7 @@
 
 
 (function(load){
-  var search = prompt("Type the name of a city ");
+  var search = "";
   var url= "http://app.ticketmaster.com/discovery/v2/events.json?city="+search+"&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
 
     $.get(url).done(function(response){
@@ -35,31 +35,20 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 
         }
 
-        // var output = document.getElementById('movies');
-
-
-        // output.innerHTML = response._embedded.events[0].name;
-        // output.innerHTML = response._embedded.events[1].name;
-
-
-
-        // // for (var i = 0; i < 20; i++ ){
-
-        //   var array = response._embedded.events.name
-        //   // console.log(response._embedded.events.name);
-        //   movies.innerHTML = response._embedded.events.name;
-
-        //   var array = document.getElementById('movies');
-
-        // };
         
-         // var movie = $(response._embedded.events[0].name);
 
-         // $("#movies").append("<div>"+ movie +"<div/>");
 
-       //    var $showEvents = $('movies');
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC14RU7IXMdMvaROiAcm8xCUBFWfjjVtcc",
+    authDomain: "moment-f308e.firebaseapp.com",
+    databaseURL: "https://moment-f308e.firebaseio.com",
+    projectId: "moment-f308e",
+    storageBucket: "moment-f308e.appspot.com",
+    messagingSenderId: "164636985947"
+  };
+  firebase.initializeApp(config);
 
-       // $('showEvents').append("<p>" + movie + "</p>");
 
       }
 })();
