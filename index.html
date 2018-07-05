@@ -16,14 +16,16 @@
 					<p>An app designed to provide five star moments for out of town travelers.</p>
 				</header>
 				<div class="container">
-					<!-- Search form -->
-					<ul class="actions special">
-						<li><a href="#one" class="button primary scrolly">Search</a></li>
-					</ul>
+				<form>
+					<div class="form-group">
+					  <label> </label>
+					  <input type="location" class="form-control" id="location" aria-describedby="emailHelp" placeholder="Enter City">
+					  <button type="submit" class="button primary scrolly" id="search">Search</button>
+					</div>
+					
+				  </form>
 				</div>
 			</section>
-
-
 
 		<!-- Two -->
 			<section id="two" class="main special">
@@ -89,7 +91,7 @@
 						<header class="major">
 							<h2>Event Section</h2>
 						</header>
-						<p id="movies"></p>
+						<p id="events"></p>
 					</div>
 					<a href="#footer" class="goto-next scrolly">Next</a>
 				</div>
@@ -134,7 +136,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 	</body>
 </html>

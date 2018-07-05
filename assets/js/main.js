@@ -1,76 +1,60 @@
 
 
 (function(load){
-  var search = prompt("Type the name of a city ");
-  var url= "http://app.ticketmaster.com/discovery/v2/events.json?city="+search+"&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
+  //setting search variable for the API call to ticket master 
+  var search = '';
+  var url= "";
 
+  //calling the API URL with the input value 
+  $("#search").on("click", function(event) {
+    event.preventDefault();
+    search = $("#location").val().trim();
+    url= "http://app.ticketmaster.com/discovery/v2/events.json?city=" +
+   search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
     $.get(url).done(function(response){
-      console.log(response);
       success(response);
     });
-
+  });
       function success(response){
-
-
+//adding the event to the DOM 
 for (var i = 0; i < response._embedded.events.length; i++) {
-
-            // var newB = $("<button>");
             var replace = $("<img class='size'>");
             var div = $("<div><button>View Info</div>");
             var newP = $("<p>");
-            // var newpic = $("<img/>");
-          
-            
             newP.html(response._embedded.events[i].name +" - "+ response._embedded.events[i].dates.start.dateTime+" -  Tix start at: $"+response._embedded.events[i].priceRanges[0].min);
             replace.attr("src", response._embedded.events[i].images[0].url);
             replace.append(newP);
             div.append(newP);
+			$("#events").append(replace,div);
 
-            // console.log(response._embedded.events[i].images[6].url)
-            // replace.append(newP,newB);
+			//yelp api call
+			//console.log(response);
+			console.log(response._embedded.events[i]._embedded.venues[0].location.latitude);
 
+			//store coordinates from ticketmaster
+			var lng = response._embedded.events[i]._embedded.venues[0].location.longitude;
+			var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
 
-
-            $("#movies").append(replace,div);
+			var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
+			$.get(queryURL).then(function(response){
+				//success(response);
+				console.log(response);
+			})
 
         }
 
+  // Initialize Firebase - commenting out but not removing in case we need this later 
+  // var config = {
+  //   apiKey: "AIzaSyC14RU7IXMdMvaROiAcm8xCUBFWfjjVtcc",
+  //   authDomain: "moment-f308e.firebaseapp.com",
+  //   databaseURL: "https://moment-f308e.firebaseio.com",
+  //   projectId: "moment-f308e",
+  //   storageBucket: "moment-f308e.appspot.com",
+  //   messagingSenderId: "164636985947"
+  // };
+  // firebase.initializeApp(config);
 
-
-
-
-
-
-
-
-
-
-        // var output = document.getElementById('movies');
-
-
-        // output.innerHTML = response._embedded.events[0].name;
-        // output.innerHTML = response._embedded.events[1].name;
-
-
-
-        // // for (var i = 0; i < 20; i++ ){
-
-        //   var array = response._embedded.events.name
-        //   // console.log(response._embedded.events.name);
-        //   movies.innerHTML = response._embedded.events.name;
-
-        //   var array = document.getElementById('movies');
-
-        // };
-        
-         // var movie = $(response._embedded.events[0].name);
-
-         // $("#movies").append("<div>"+ movie +"<div/>");
-
-       //    var $showEvents = $('movies');
-
-       // $('showEvents').append("<p>" + movie + "</p>");
 
       }
-
 })();
+
