@@ -25,7 +25,21 @@ for (var i = 0; i < response._embedded.events.length; i++) {
             replace.attr("src", response._embedded.events[i].images[0].url);
             replace.append(newP);
             div.append(newP);
-            $("#events").append(replace,div);
+			$("#events").append(replace,div);
+
+			//yelp api call
+			console.log(response);
+			console.log(response._embedded.events[i]._embedded.venues[0].location.latitude);
+
+			//store coordinates from ticketmaster
+			var lng = response._embedded.events[i]._embedded.venues[0].location.longitude;
+			var lat = response._embedded.events[i]._embedded.venues[0].location.longitude;
+
+			var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
+			$.get(queryURL).done(function(response){
+				success(response);
+				console.log(response);
+			})
 
         }
 
