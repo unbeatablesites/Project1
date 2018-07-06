@@ -25,7 +25,7 @@ for (var i = 0; i < response._embedded.events.length; i++) {
             replace.attr("src", response._embedded.events[i].images[0].url);
             replace.append(newP);
             div.append(newP);
-			$("#events").append(replace,div);
+			$("#events").prepend(replace,div);
 
 			//yelp api call
 			//console.log(response);
@@ -40,6 +40,11 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 				//success(response);
 				console.log(response);
 			})
+
+        }
+
+        function addPlaces() {
+          $("#events").append(replace,div);
 
         }
 
