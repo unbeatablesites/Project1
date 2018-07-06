@@ -21,7 +21,7 @@
 		for (var i = 0; i < response._embedded.events.length; i++) {
 
 			var replace = $("<img class='size'>");
-					var eventDiv = $("<div>").attr("class", "event-div")
+					var eventDiv = $("<div>").attr("class", "event-div");
            			var div = $("<div><button>View Info</div>");
         			var newP = $("<p>");
             		newP.html(response._embedded.events[i].name +" - "+ response._embedded.events[i].dates.start.dateTime+" -  Tix start at: $"+response._embedded.events[i].priceRanges[0].min);
@@ -30,7 +30,7 @@
 					div.append(newP);
 					var resDiv = $("<div><p>Restaurants Nearby</p>");
 					eventDiv.append(div,replace, resDiv);
-					$("#events").append(eventDiv);
+					//$("#events").append(eventDiv);
 					
 
 			//yelp api call
@@ -52,9 +52,11 @@
 					var resName = $("<p>" + res[j].name + "</p>");
 					resDiv.append(resName);
 					//$(eventDiv).append(resDiv);
+					$("#events").append(eventDiv);
 
 				};
 			});
+			//$("#events").append(eventDiv)
 
         }
 
