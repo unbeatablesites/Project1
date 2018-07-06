@@ -16,7 +16,8 @@
     });
   });
       function success(response){
-        debugger;
+              $('#search').empty();
+              $('#events').empty();
 //adding the event to the DOM 
 for (var i = 0; i < response._embedded.events.length; i++) {
             var replace = $("<img class='size'>");
