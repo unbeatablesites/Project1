@@ -43,9 +43,22 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 
         }
 
+<<<<<<< HEAD
         $("#Selcity").html("POPULAR UP COMING EVENTS"+" "+ "in"+" "+search);
         $("#Selfood").html("POPULAR PLACES TO EAT"+" "+ "in"+" "+search);
         $("#pPic").html(replace);
+=======
+  // Initialize Firebase - commenting out but not removing in case we need this later 
+  // var config = {
+  //   apiKey: "AIzaSyC14RU7IXMdMvaROiAcm8xCUBFWfjjVtcc",
+  //   authDomain: "moment-f308e.firebaseapp.com",
+  //   databaseURL: "https://moment-f308e.firebaseio.com",
+  //   projectId: "moment-f308e",
+  //   storageBucket: "moment-f308e.appspot.com",
+  //   messagingSenderId: "164636985947"
+  // };
+  // firebase.initializeApp(config);
+>>>>>>> 1ceb87ebe6f496271747c39bf3326528829e10ba
 
   // Initialize Firebase - commenting out but not removing in case we need this later 
   // var config = {
@@ -58,7 +71,10 @@ for (var i = 0; i < response._embedded.events.length; i++) {
   // };
   // firebase.initializeApp(config);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ceb87ebe6f496271747c39bf3326528829e10ba
       }
 })();
 
