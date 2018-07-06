@@ -11,7 +11,7 @@
     search = $("#location").val().trim();
     url= "http://app.ticketmaster.com/discovery/v2/events.json?city=" +
    search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
-    $.get(url).done(function(response){
+    $.get(url).then(function(response){
       success(response);
     });
   });
@@ -28,7 +28,8 @@
            			replace.attr("src", response._embedded.events[i].images[0].url);
             		replace.append(newP);
 					div.append(newP);
-					eventDiv.append(div,replace)
+					var resDiv = $("<div><p>Restaurants Nearby</p>");
+					eventDiv.append(div,replace, resDiv);
 					$("#events").append(eventDiv);
 					
 
@@ -45,11 +46,12 @@
 				//success(response);
 				console.log(res);
 
-				for (j = 0; j < res.length; j ++) {
-					var resDiv = $("<div><p>Restaurants Nearby</p>");
+				for (var j = 0; j < res.length; j ++) {
+ 
+					//var resDiv = $("<div><p>Restaurants Nearby</p>");
 					var resName = $("<p>" + res[j].name + "</p>");
 					resDiv.append(resName);
-					$(eventDiv).append(resDiv);
+					//$(eventDiv).append(resDiv);
 
 				};
 			});
