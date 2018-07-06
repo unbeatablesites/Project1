@@ -16,6 +16,7 @@
     });
   });
       function success(response){
+        debugger;
 //adding the event to the DOM 
 for (var i = 0; i < response._embedded.events.length; i++) {
             var replace = $("<img class='size'>");
@@ -43,6 +44,10 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 
         }
 
+        $("#Selcity").html("POPULAR UP COMING EVENTS"+" "+ "in"+" "+search);
+        $("#Selfood").html("POPULAR PLACES TO EAT"+" "+ "in"+" "+search);
+        $("#pPic").html(replace);
+
   // Initialize Firebase - commenting out but not removing in case we need this later 
   // var config = {
   //   apiKey: "AIzaSyC14RU7IXMdMvaROiAcm8xCUBFWfjjVtcc",
@@ -53,7 +58,6 @@ for (var i = 0; i < response._embedded.events.length; i++) {
   //   messagingSenderId: "164636985947"
   // };
   // firebase.initializeApp(config);
-
 
       }
 })();
