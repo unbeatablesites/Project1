@@ -17,16 +17,20 @@
   });
       function success(response){
         debugger;
-//adding the event to the DOM 
-for (var i = 0; i < response._embedded.events.length; i++) {
-            var replace = $("<img class='size'>");
-            var div = $("<div><button>View Info</div>");
-            var newP = $("<p>");
-            newP.html(response._embedded.events[i].name +" - "+ response._embedded.events[i].dates.start.dateTime+" -  Tix start at: $"+response._embedded.events[i].priceRanges[0].min);
-            replace.attr("src", response._embedded.events[i].images[0].url);
-            replace.append(newP);
-            div.append(newP);
-			$("#events").append(replace,div);
+	//adding the event to the DOM 
+		for (var i = 0; i < response._embedded.events.length; i++) {
+
+			var replace = $("<img class='size'>");
+					var eventDiv = $("<div>").attr("class", "event-div")
+           			var div = $("<div><button>View Info</div>");
+        			var newP = $("<p>");
+            		newP.html(response._embedded.events[i].name +" - "+ response._embedded.events[i].dates.start.dateTime+" -  Tix start at: $"+response._embedded.events[i].priceRanges[0].min);
+           			replace.attr("src", response._embedded.events[i].images[0].url);
+            		replace.append(newP);
+					div.append(newP);
+					eventDiv.append(div,replace)
+					$("#events").append(eventDiv);
+					
 
 			//yelp api call
 			//console.log(response);
@@ -37,17 +41,18 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 			var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
 
 			var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
-			$.get(queryURL).then(function(response){
+			$.get(queryURL).then(function(res){
 				//success(response);
-				console.log(response);
+				console.log(res);
 
-				for (j = 0; j < response.length; j ++) {
-					var resName = $("<p>" + response[j].name + "</p>");
-					var resDiv = $("<div><p>Restaurants Nearby</p>")
+				for (j = 0; j < res.length; j ++) {
+					var resDiv = $("<div><p>Restaurants Nearby</p>");
+					var resName = $("<p>" + res[j].name + "</p>");
 					resDiv.append(resName);
-					$("#events").append(resDiv);
-				}
-			})
+					$(eventDiv).append(resDiv);
+
+				};
+			});
 
         }
 
