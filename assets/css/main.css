@@ -41,6 +41,10 @@ ol, ul {
 	list-style: none;
 }
 
+#stars {
+	text-align: center;
+}
+
 blockquote, q {
 	quotes: none;
 }
