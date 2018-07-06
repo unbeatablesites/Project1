@@ -30,7 +30,7 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 
 			//yelp api call
 			//console.log(response);
-			console.log(response._embedded.events[i]._embedded.venues[0].location.latitude);
+			//console.log(response._embedded.events[i]._embedded.venues[0].location.latitude);
 
 			//store coordinates from ticketmaster
 			var lng = response._embedded.events[i]._embedded.venues[0].location.longitude;
@@ -40,6 +40,13 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 			$.get(queryURL).then(function(response){
 				//success(response);
 				console.log(response);
+
+				for (j = 0; j < response.length; j ++) {
+					var resName = $("<p>" + response[j].name + "</p>");
+					var resDiv = $("<div><p>Restaurants Nearby</p>")
+					resDiv.append(resName);
+					$("#events").append(resDiv);
+				}
 			})
 
         }
