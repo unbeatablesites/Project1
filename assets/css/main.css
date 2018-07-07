@@ -43,6 +43,7 @@ ol, ul {
 
 #stars {
 	text-align: center;
+	margin-top: 200px;
 }
 
 blockquote, q {
@@ -267,7 +268,7 @@ input, select, textarea {
 	.container {
 		margin: 0 auto;
 		max-width: calc(100% - 4em);
-		width: 35em;
+		width: 65em;
 	}
 
 		.container.xsmall {
@@ -2807,6 +2808,7 @@ input, select, textarea {
 				font-size: 3em;
 				line-height: 1.25em;
 				margin: 0;
+				top: 200px;
 			}
 
 				#header header h1:after {
@@ -2821,11 +2823,11 @@ input, select, textarea {
 
 		#header .container {
 			background: rgba(255, 255, 255, 0.95);
-			bottom: 0;
-			left: 50%;
-			margin-left: -17.5em;
-			padding: 2.5em;
-			position: absolute;
+   			bottom: 0;
+    		left: 0%;
+    /* margin-left: -17.5em; */
+   			padding: 2.5em;
+    		position: static;
 		}
 
 			#header .container > :last-child {
