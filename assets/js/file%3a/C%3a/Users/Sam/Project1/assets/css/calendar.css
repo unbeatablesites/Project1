@@ -31,10 +31,13 @@ div.zabuto_calendar .table tr.calendar-month-header td{
 }
 
 div.zabuto_calendar .table-bordered tr.calendar-month-header td{
-    border-left:0;border-right:0
+    border-left:0;
+    border-right:0;
 }
 
-
+div.zabuto_calendar .table-bordered tr.calendar-month-header td:first-child{
+    border-left:1px solid #ddd
+}
 
 div.zabuto_calendar div.calendar-month-navigation{
     cursor:pointer;margin:0;padding:0;padding-top:5px
