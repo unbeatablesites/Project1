@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <!-- Adding some stuff to change -->
 
-<html> 
+<html>
 <!-- 	<head>
 		
 		<title>Five Star Moment</title>
@@ -29,28 +29,52 @@
 		
 
 	
-			<section id="header">
- -->
-<html>
-
+		<section id="header">
+		-->
+		<html>
+			
 <head>
 	<title>Five Star Moment</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/calendar.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 	<script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 33.7490, lng: -84.386330},
-          zoom: 14
-        });
-      }
-    </script>
-    <style type="text/css">
-    	#map{ height: 250px;
-    	}
-    </style>
+		var map;
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('map'), {
+				center: { lat: 33.7490, lng: -84.386330 },
+				zoom: 14
+			});
+		}
+	</script>
+	<script type="application/javascript">
+		$(document).ready(function () {
+			$("#my-calendar").zabuto_calendar({
+				language: "en",
+				year: 2018,
+				month: 7,
+				show_previous: false,
+				show_next: 36,
+				cell_border: true,
+				today: true,
+				show_days: true,
+				weekstartson: 0,
+				nav_icon: {
+					prev: '<i class="fa fa-chevron-circle-left"></i>',
+					next: '<i class="fa fa-chevron-circle-right"></i>'
+				}
+			});
+		});
+	</script>
+	<style type="text/css">
+		#map {
+			height: 250px;
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -81,14 +105,14 @@
 	</section>
 
 	<!-- Two -->
-<!-- 	<section id="two" class="main special">
+	<!-- 	<section id="two" class="main special">
 		<div class="container">
 			<span class="image fit primary">
 				<img src="images/pic02.jpg" alt="" />
 			</span>
 			<div class="content"> -->
 
-<!-- 				<header class="major">
+	<!-- 				<header class="major">
 					<h2>Up Coming events</h2>
 				</header>
 				<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum lorem blandit vis ac commodo aliquet vulputate.</p>
@@ -139,26 +163,27 @@
 		</div>
 	</section>
  -->
-<!-- HEAD -->
-		<!-- Two -->
-			<section id="two" class="main special">
-				<div class="container" id="">
-					<div class="content">
-						<header class="">
-							<h2 id="Selcity">Popular Up Coming events</h2>
-						</header>
-						<p>An app designed to provide five star moments for out of town travelers.</p>
-						<div id="pPic"></div>
-						<ul id="map2">
-						</ul>
-					</div>
-					<div class="content">
-						<header class="">
-							<h2 id="Selfood">Popular Places To Eat</h2>
-						</header>
-						<p>An app designed to provide five star moments for out of town travelers.</p>
-						<ul id="map">
-			</section>
+	<!-- HEAD -->
+	<!-- Two -->
+	<section id="two" class="main special">
+		<div class="container" id="">	
+			<div class="content">
+					<div id="my-calendar"></div>
+				<header class="">
+					<h2 id="Selcity">Popular Up Coming events</h2>
+				</header>
+				<p>An app designed to provide five star moments for out of town travelers.</p>
+				<div id="pPic"></div>
+				<ul id="map2">
+				</ul>
+			</div>
+			<div class="content">
+				<header class="">
+					<h2 id="Selfood">Popular Places To Eat</h2>
+				</header>
+				<p>An app designed to provide five star moments for out of town travelers.</p>
+				<ul id="map">
+	</section>
 	<!-- Three -->
 	<section id="three" class="main special">
 		<div class="container">
@@ -234,7 +259,7 @@
 	</section>
 
 	<!-- Scripts -->
-<!-- 	<script src="assets/js/jquery.min.js"></script>
+	<!-- 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
@@ -245,19 +270,21 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body> -->
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA_urEtrwCR3lJ-_dOOHyHnwCkNqptFSA&callback=initMap"
-    async defer></script>
-			
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA_urEtrwCR3lJ-_dOOHyHnwCkNqptFSA&callback=initMap" async
+	 defer></script>
+	<script src="assets/js/calendar.js"></script>
 
-	</body>
+
+</body>
+
 </html>

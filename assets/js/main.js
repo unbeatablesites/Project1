@@ -4,6 +4,7 @@
   //setting search variable for the API call to ticket master 
   var search = '';
   var url= "";
+  
 
   //calling the API URL with the input value 
   $("#search").on("click", function(event) {
@@ -12,7 +13,7 @@
     url= "http://app.ticketmaster.com/discovery/v2/events.json?city=" +
    search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
     $.get(url).done(function(response){
-      success(response);
+      success(response);s
     });
   });
       function success(response){
@@ -26,7 +27,7 @@ for (var i = 0; i < response._embedded.events.length; i++) {
             replace.attr("src", response._embedded.events[i].images[0].url);
             replace.append(newP);
             div.append(newP);
-			$("#events").append(replace,div);
+			$("#events").prepend(replace,div);
 
 			//yelp api call
 			//console.log(response);
@@ -44,9 +45,14 @@ for (var i = 0; i < response._embedded.events.length; i++) {
 
         }
 
+        function addPlaces() {
+          $("#events").append(replace,div);
+
+        }
         $("#Selcity").html("POPULAR UP COMING EVENTS"+" "+ "in"+" "+search);
         $("#Selfood").html("POPULAR PLACES TO EAT"+" "+ "in"+" "+search);
         $("#pPic").html(replace);
+
 
   // Initialize Firebase - commenting out but not removing in case we need this later 
   // var config = {
