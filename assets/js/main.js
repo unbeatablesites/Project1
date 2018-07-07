@@ -12,7 +12,7 @@
     url= "http://app.ticketmaster.com/discovery/v2/events.json?city=" +
    search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
     $.get(url).done(function(response){
-      success(response);
+      success(response);s
     });
   });
       function success(response){
