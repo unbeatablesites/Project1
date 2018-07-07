@@ -27,7 +27,9 @@ async function success(response) {
 		var eventImage = response._embedded.events[i].images[0].url;
 		var lng = response._embedded.events[i]._embedded.venues[0].location.longitude;
 		var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
-		var eventID = eventName.replace(/\s+/g,"-").toLowerCase().toString();
+		var eventID = (eventName + eventDate).replace(/\s+/g,"-").toLowerCase().toString();
+		eventID = eventID.replace(/[^\w\s]/gi, '');
+		
 		console.log(eventID);
 
 		$("#events").append("<div id=" + eventID + ">" + eventName + eventDate + eventPrice + "<img class='size' src=" + eventImage + "></div>");
