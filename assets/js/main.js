@@ -4,6 +4,7 @@
   //setting search variable for the API call to ticket master 
   var search = '';
   var url= "";
+  
 
   //calling the API URL with the input value 
   $("#search").on("click", function(event) {
@@ -51,6 +52,7 @@ for (var i = 0; i < response._embedded.events.length; i++) {
         $("#Selcity").html("POPULAR UP COMING EVENTS"+" "+ "in"+" "+search);
         $("#Selfood").html("POPULAR PLACES TO EAT"+" "+ "in"+" "+search);
         $("#pPic").html(replace);
+
 
   // Initialize Firebase - commenting out but not removing in case we need this later 
   // var config = {
