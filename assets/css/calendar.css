@@ -14,9 +14,7 @@ div.zabuto_calendar .table tr th,div.zabuto_calendar .table tr td{
     background-color:#fff
 }
 
-div.zabuto_calendar .table tr:last-child{
-    border-bottom:1px solid #ddd
-}
+
 
 div.zabuto_calendar .table tr.calendar-month-header td{
     background-color:#fafafa;font-weight:bold
