@@ -16,7 +16,7 @@ $(document).ready(function () {
     weekstartson: 0,
     data: [{
       date: '2018-07-07',
-      title: 'Frank is a ...',
+      title: 'Make it work',
       badge: 'false'
     }],
     action: function () {
