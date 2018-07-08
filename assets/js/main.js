@@ -31,7 +31,7 @@ async function success(response) {
 		var eventID = (eventName + eventDate).replace(/\s+/g,"-").toLowerCase().toString();
 		eventID = eventID.replace(/[^\w\s]/gi, '');
 		// $("#events").append("<div id=" + eventID + ">" + eventName + eventDate + eventPrice + "<img class='size' src=" + eventImage + "></div>");
-		$("#events").append("<div id=" + eventID + ">" +"<br>"+"<br>"+"<img class='size' src=" + eventImage + ">"+"<br>"+ eventName +"<br>"+venue +"<br>"+ eventDate +" "+"Ticket prices: $"+" "+eventPrice +"<br>"+"<a href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div>");
+		$("#events").append("<div id=" + eventID + ">" +"<br>"+"<br>"+"<img class='size' src=" + eventImage + ">"+"<br>"+ eventName +"<br>"+venue +"<br>"+ eventDate +" "+"Ticket prices: $"+" "+eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div>");
 		var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
 		rest[eventName] = [];
 		var res = await $.get(queryURL);

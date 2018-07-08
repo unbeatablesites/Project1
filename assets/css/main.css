@@ -38,8 +38,16 @@ button{
 	float: left;
 }
 
+.pa{
+	margin: 12px 0 1em 0;
+}
+
 ol, ul {
 	list-style: none;
+}
+
+.redLink{
+	color: red;
 }
 
 #stars {
@@ -80,8 +88,7 @@ input, select, textarea {
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-	    width: 70%;
-}
+	 width: 33%;}
 
 /* Basic */
 
@@ -2827,8 +2834,11 @@ input, select, textarea {
 
 		#header .container {
 			background: rgba(255, 255, 255, 0.95);
-   			bottom: 0;
-    		left: 0%;
+    		bottom: -101px;
+   			 left: 0%;
+    /* margin-left: -17.5em; */
+    padding: 2.5em;
+    position: static;
     /* margin-left: -17.5em; */
    			padding: 2.5em;
     		position: static;
@@ -2931,7 +2941,7 @@ input, select, textarea {
 			}
 
 				.main .container:before {
-					display: none;
+					/*display: none;*/
 				}
 
 		/* Header */
@@ -2942,8 +2952,7 @@ input, select, textarea {
 			}
 
 			#header .container {
-				
-				padding: 1em;
+			 margin-top: -22px;
 			}
 
 		/* Footer */
@@ -3012,7 +3021,7 @@ input, select, textarea {
 					}
 
 				#header .container {
-					display: none;
+					/*display: none;*/
 				}
 
 		/* Footer */
