@@ -21,23 +21,32 @@ async function success(response) {
 	//adding the event to the DOM 
 	for (var i = 0; i < response._embedded.events.length; i++) {
 		var eventName = response._embedded.events[i].name;
-		var eventDate = response._embedded.events[i].dates.start.dateTime;
+		var buyTicket = response._embedded.events[i].url;
+		var eventDate = response._embedded.events[i].dates.start.localDate;
 		var eventPrice = response._embedded.events[i].priceRanges[0].min;
 		var eventImage = response._embedded.events[i].images[0].url;
 		var lng = response._embedded.events[i]._embedded.venues[0].location.longitude;
 		var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
+		var venue = response._embedded.events[i]._embedded.venues[0].name;
 		var eventID = (eventName + eventDate).replace(/\s+/g,"-").toLowerCase().toString();
 		eventID = eventID.replace(/[^\w\s]/gi, '');
-		$("#events").append("<div id=" + eventID + ">" + eventName + eventDate + eventPrice + "<img class='size' src=" + eventImage + "></div>");
+		// $("#events").append("<div id=" + eventID + ">" + eventName + eventDate + eventPrice + "<img class='size' src=" + eventImage + "></div>");
+		$("#events").append("<div id=" + eventID + ">" +"<br>"+"<br>"+"<img class='size' src=" + eventImage + ">"+"<br>"+ eventName +"<br>"+venue +"<br>"+ eventDate +" "+"Ticket prices: $"+" "+eventPrice +"<br>"+"<a href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div>");
 		var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
 		rest[eventName] = [];
 		var res = await $.get(queryURL);
-		for (var j = 0; j < 5; j++) {
+		for (var j = 1; j <= 5; j++) {
 			var restaurant = res[j];
-			var resName = res[j].name
-			var resURL = res[j].url
+			var resName = res[j].name;
+			var resURL = res[j].url;
+			var number = j;
+			var space = "<p>";
+		
 			var a = "#" + eventID;
-			$(a).append("<a href=" + resURL + ">" + resName + "</a>");
+			//a.replace(/\s+/g,"-").toLowerCase();
+			//console.log(a);
+			$(a).append("<a href=" + resURL + ">" + space + number + resName +"</a>");
+			// $(a).append("<a href=" + buyTicket + ">" +"BuyTicket" +"</a>");
 			
 		};
 		
