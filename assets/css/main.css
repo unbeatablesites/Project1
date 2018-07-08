@@ -35,14 +35,24 @@ button{
 .size{
 	width: 300px;
 	height: 225px;
+	float: left;
+}
+
+.pa{
+	margin: 12px 0 1em 0;
 }
 
 ol, ul {
 	list-style: none;
 }
 
+.redLink{
+	color: red;
+}
+
 #stars {
 	text-align: center;
+	margin-top: 144px;
 }
 
 blockquote, q {
@@ -78,7 +88,7 @@ input, select, textarea {
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
-}
+	 width: 33%;}
 
 /* Basic */
 
@@ -139,6 +149,7 @@ input, select, textarea {
 		border-bottom: dotted 1px;
 		color: #8cd1a8;
 		text-decoration: none;
+
 	}
 
 		a:hover {
@@ -157,7 +168,8 @@ input, select, textarea {
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 12px 0 1em 0;
+		line-height: 14%;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -268,7 +280,7 @@ input, select, textarea {
 	.container {
 		margin: 0 auto;
 		max-width: calc(100% - 4em);
-		width: 35em;
+		width: 65em;
 	}
 
 		.container.xsmall {
@@ -2645,6 +2657,7 @@ input, select, textarea {
 			border: 0;
 			box-shadow: none;
 			color: #ffffff !important;
+			width: 190px;
 		}
 
 			input[type="submit"].primary:hover,
@@ -2788,7 +2801,7 @@ input, select, textarea {
 		#header header {
 			color: rgba(255, 255, 255, 0.5);
 			display: inline-block;
-			padding-bottom: 8em;
+			padding-bottom: 0em;
 			vertical-align: middle;
 		}
 
@@ -2808,7 +2821,7 @@ input, select, textarea {
 				font-size: 3em;
 				line-height: 1.25em;
 				margin: 0;
-			}
+				top: 162px;			}
 
 				#header header h1:after {
 					margin-top: 0.5em;
@@ -2822,11 +2835,14 @@ input, select, textarea {
 
 		#header .container {
 			background: rgba(255, 255, 255, 0.95);
-			bottom: 0;
-			left: 50%;
-			margin-left: -17.5em;
-			padding: 2.5em;
-			position: absolute;
+    		bottom: -101px;
+   			 left: 0%;
+    /* margin-left: -17.5em; */
+    padding: 2.5em;
+    position: static;
+    /* margin-left: -17.5em; */
+   			padding: 2.5em;
+    		position: static;
 		}
 
 			#header .container > :last-child {
@@ -2926,7 +2942,7 @@ input, select, textarea {
 			}
 
 				.main .container:before {
-					display: none;
+					/*display: none;*/
 				}
 
 		/* Header */
@@ -2937,8 +2953,7 @@ input, select, textarea {
 			}
 
 			#header .container {
-				margin-left: -40%;
-				padding: 3em;
+			 margin-top: -22px;
 			}
 
 		/* Footer */
@@ -3007,7 +3022,7 @@ input, select, textarea {
 					}
 
 				#header .container {
-					display: none;
+					/*display: none;*/
 				}
 
 		/* Footer */
