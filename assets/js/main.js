@@ -19,7 +19,7 @@ $("#search").on("click", function (event) {
 
 async function success(response) {
 	//validate user input
-	if ($.isNumeric(search)) {
+	if (($.isNumeric(search)) && (search.length >= 5)) {
 		$("#events").empty();
 		$("#location").val("");
 		$("#events").append("<h1>Five Star Moments does not accept zip codes at this time</h1>")
