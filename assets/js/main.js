@@ -36,10 +36,10 @@ async function success(response) {
 		var buyTicket = response._embedded.events[i].url;
 		var eventDate = response._embedded.events[i].dates.start.localDate;
 		if (response._embedded.events[i].priceRanges === undefined){
-			var eventPrice = "various"
+			var eventPrice = "Tickets sold by third party";
 		}
 		else {
-		var eventPrice = response._embedded.events[i].priceRanges[0].min;
+		var eventPrice = "Tickets starting at: $ " + response._embedded.events[i].priceRanges[0].min;
 		}
 		var eventImage = response._embedded.events[i].images[0].url;
 		var lng = response._embedded.events[i]._embedded.venues[0].location.longitude;
@@ -48,7 +48,7 @@ async function success(response) {
 		var eventID = (eventName + eventDate).replace(/\s+/g,"-").toLowerCase().toString();
 		eventID = eventID.replace(/[^\w\s]/gi, '');
 		
-		$("#events").append("<div class='row mx-auto'><div class='-6'><img class='size' src=" + eventImage + "></div><div class='col-6' id=" + eventID + ">"+ eventName +"<br>"+venue +"<br>"+ eventDate +" "+"Ticket prices: $"+" "+eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div></div>");
+		$("#events").append("<div class='row mx-auto'><div class='-6'><img class='size' src=" + eventImage + "></div><div class='col-6' id=" + eventID + ">"+ eventName +"<br>"+venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div></div>");
 		var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
 		rest[eventName] = [];
 		var res = await $.get(queryURL);
