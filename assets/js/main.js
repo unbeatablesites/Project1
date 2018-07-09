@@ -54,9 +54,9 @@ async function success(response) {
 			var lng = response._embedded.events[i]._embedded.venues[0].location.longitude;
 			var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
 			var venue = response._embedded.events[i]._embedded.venues[0].name;
-			var eventID = (eventName + eventDate).replace(/\s+/g,"-").toLowerCase().toString();
+			var eventID = (eventName + eventDate + [i]).replace(/\s+/g,"-").toLowerCase().toString();
 			eventID = eventID.replace(/[^\w\s]/gi, '');
-			$("#events").append("<div class='row mx-auto'><div class='-6'><img class='size' src=" + eventImage + "></div><div class='col-6' id=" + eventID + ">"+ "<h1>" + eventName + "</h1>" + "<br>" + venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div></div>");
+			$("#events").append("<div class='row mx-auto'><div class='-6'><img class='size' src=" + eventImage + "></div><div class='col-6' id=" + eventID + ">"+ "<h1>" + eventName + "</h1>" + "<br>" + venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "<h1>Restaurants Nearby</h1>" + "</div></div>");
 			
 			var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
 			rest[eventName] = [];
@@ -107,3 +107,5 @@ var config = {
 	  $("#message").val("");
 	
   });
+
+  
