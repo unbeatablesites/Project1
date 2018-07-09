@@ -35,7 +35,12 @@ async function success(response) {
 		var eventName = response._embedded.events[i].name;
 		var buyTicket = response._embedded.events[i].url;
 		var eventDate = response._embedded.events[i].dates.start.localDate;
+		if (response._embedded.events[i].priceRanges === undefined){
+			var eventPrice = "various"
+		}
+		else {
 		var eventPrice = response._embedded.events[i].priceRanges[0].min;
+		}
 		var eventImage = response._embedded.events[i].images[0].url;
 		var lng = response._embedded.events[i]._embedded.venues[0].location.longitude;
 		var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
