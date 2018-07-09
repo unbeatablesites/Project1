@@ -27,12 +27,16 @@ async function success(response) {
 		window.stop();
 		$("#events").empty();
 		$("#location").val("");
+		$("#section-label").html("<h1>I don't understand</h1>")
+		$("#events-label").html("<h2></h2>")
 		$("#events").append("<h1>Please enter a valid city</h1>");
 	}
 	else {
 		window.stop();
 		$("#events").empty();
 		$("#location").val("");
+		$("#section-label").html("<h1>Upcoming events in</h1>")
+		$("#events-label").html("<h2> " + search + "</h2>");
 		//adding the event to the DOM 
 		for (var i = 0; i < response._embedded.events.length; i++) {
 			var eventName = response._embedded.events[i].name;
