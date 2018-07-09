@@ -23,6 +23,7 @@ async function success(response) {
 		$("#events").append("<h1>Five Star Moments does not accept zip codes at this time</h1>")
 	}
 	else if (response._embedded === undefined) {
+		window.stop();
 		$("#events").empty();
 		$("#location").val("");
 		$("#events").append("<h1>Please enter a valid city</h1>");
