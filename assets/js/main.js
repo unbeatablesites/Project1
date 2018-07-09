@@ -7,7 +7,7 @@ var rest = {};
 $("#search").on("click", function (event) {
 	event.preventDefault();
 	search = $("#location").val().trim();
-	url = "http://app.ticketmaster.com/discovery/v2/events.json?city=" +
+	url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" +
 		search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
 	$.get(url).then(function (response) {
 		console.log(response);
