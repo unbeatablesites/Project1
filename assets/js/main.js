@@ -7,13 +7,21 @@ var rest = {};
 $("#search").on("click", function (event) {
 	event.preventDefault();
 	search = $("#location").val().trim();
-	url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" +
-		search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
-	$.get(url).then(function (response) {
-		console.log(response);
-		success(response);
-		//$("#location").empty();
-	});
+	if (search === "") {
+		
+		$("#location").val("");
+		$("#section-label").html("<h1>I don't understand</h1>")
+		$("#events-label").html("<h1>Please enter a valid city</h1>")
+		
+	}
+	else {
+		url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" +
+			search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
+		$.get(url).then(function (response) {
+			success(response);
+		
+		});
+	}
 });
 async function success(response) {
 	//validate user input
@@ -89,11 +97,11 @@ var config = {
 
   var database = firebase.database();
 
-  $("#submit-button").on("click", function(event) {
-	  event.preventDefault();
-	  var contactName = $("#name").val().trim();
-	  var contactEmail = $("#email").val().trim();
-	  var contactMessage = $("#message").val().trim();
+$("#submit-button").on("click", function(event) {
+	event.preventDefault();
+	var contactName = $("#name").val().trim();
+	var contactEmail = $("#email").val().trim();
+	var contactMessage = $("#message").val().trim();
 
 
 	  var newContact = {
@@ -106,6 +114,6 @@ var config = {
 	  $("#email").val("");
 	  $("#message").val("");
 	
-  });
+});
 
   
