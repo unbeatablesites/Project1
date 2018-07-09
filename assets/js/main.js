@@ -18,6 +18,7 @@ $("#search").on("click", function (event) {
 async function success(response) {
 	//validate user input
 	if (($.isNumeric(search)) && (search.length >= 5)) {
+		window.stop();
 		$("#events").empty();
 		$("#location").val("");
 		$("#events").append("<h1>Five Star Moments does not accept zip codes at this time</h1>")
@@ -29,6 +30,7 @@ async function success(response) {
 		$("#events").append("<h1>Please enter a valid city</h1>");
 	}
 	else {
+		window.stop();
 		$("#events").empty();
 		$("#location").val("");
 	//adding the event to the DOM 
