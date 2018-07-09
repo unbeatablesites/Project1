@@ -55,6 +55,14 @@ $(document).ready(function () {
       // }
       //2. push that object to the "dataArray" array defined on line 45.
 
+      $.each(function(){
+        dataArray.push({
+          date: dataArray.find('.date').val(),
+          title: dataArray.find('.title').val(),
+          badge: false,
+        });
+      });
+      
 
       var replace = $("<img class='size'>");
       var div = $("<div><button>View Info</div>");
