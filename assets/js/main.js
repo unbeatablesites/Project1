@@ -21,6 +21,8 @@ async function success(response) {
 		window.stop();
 		$("#events").empty();
 		$("#location").val("");
+		$("#section-label").html("<h1>I don't understand</h1>")
+		$("#events-label").html("<h2></h2>")
 		$("#events").append("<h1>Five Star Moments does not accept zip codes at this time</h1>")
 	}
 	else if (response._embedded === undefined) {
