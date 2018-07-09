@@ -56,7 +56,7 @@ async function success(response) {
 			var venue = response._embedded.events[i]._embedded.venues[0].name;
 			var eventID = (eventName + eventDate).replace(/\s+/g,"-").toLowerCase().toString();
 			eventID = eventID.replace(/[^\w\s]/gi, '');
-			$("#events").append("<div class='row mx-auto'><div class='-6'><img class='size' src=" + eventImage + "></div><div class='col-6' id=" + eventID + ">"+ eventName +"<br>"+venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div></div>");
+			$("#events").append("<div class='row mx-auto'><div class='-6'><img class='size' src=" + eventImage + "></div><div class='col-6' id=" + eventID + ">"+ "<h1>" + eventName + "</h1>" + "<br>" + venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div></div>");
 			
 			var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
 			rest[eventName] = [];
@@ -76,4 +76,34 @@ async function success(response) {
 
 }	
 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAzCJ1xHFQKflQB7B88p2-kStszJX3WJ8o",
+    authDomain: "five-star-moments.firebaseapp.com",
+    databaseURL: "https://five-star-moments.firebaseio.com",
+    projectId: "five-star-moments",
+    storageBucket: "five-star-moments.appspot.com",
+    messagingSenderId: "602816166347"
+  };
+  firebase.initializeApp(config);
 
+  var database = firebase.database();
+
+  $("#submit-button").on("click", function(event) {
+	  event.preventDefault();
+	  var contactName = $("#name").val().trim();
+	  var contactEmail = $("#email").val().trim();
+	  var contactMessage = $("#message").val().trim();
+
+
+	  var newContact = {
+		  name: contactName,
+		  email: contactEmail,
+		  message: contactMessage
+	  };
+	  database.ref().push(newContact);
+	  $("#name").val("");
+	  $("#email").val("");
+	  $("#message").val("");
+	
+  });
