@@ -40,6 +40,7 @@ button{
 
 .pa{
 	margin: 12px 0 1em 0;
+
 }
 
 ol, ul {
@@ -199,6 +200,7 @@ input, select, textarea {
 	h4 {
 		font-size: 0.9em;
 		line-height: 1.5em;
+		bottom: -85px;
 	}
 
 	h5 {
@@ -2832,7 +2834,7 @@ input, select, textarea {
 				font-size: 3em;
 				line-height: 1.25em;
 				margin: 0;
-				top: 162px;			}
+				top: 34px;			}
 
 				#header header h1:after {
 					margin-top: 0.5em;
@@ -3132,7 +3134,9 @@ input, select, textarea {
 					padding-left: 0;
 				}
 
-		/* Main */
+		/* Main */#stars{
+					display: none;
+				}
 
 			.main .container {
 				padding: 3em 1em 1em 1em ;
