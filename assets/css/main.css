@@ -331,6 +331,7 @@ input, select, textarea {
 		flex-wrap: wrap;
 		box-sizing: border-box;
 		align-items: stretch;
+		margin: 1em;
 	}
 
 		.row > * {
@@ -411,6 +412,7 @@ input, select, textarea {
 
 		.row > .col-6 {
 			width: 50%;
+			padding: 1em;
 		}
 
 		.row > .off-6 {

@@ -45,7 +45,7 @@ $(document).ready(function () {
     var dataArray = [];
     //adding the event to the DOM 
     for (var i = 0; i < response._embedded.events.length; i++) {
-
+      
       //for each event in this loop, we want to do 2 things:
       //1. build a data object that looks like this:
       // {
@@ -53,16 +53,20 @@ $(document).ready(function () {
       //   title: 'Frank is a ...',
       //   badge: 'false'
       // }
+      $.each(events[i], function(){
+        $("#my-calendar").data({
+          date:'',
+          title:'',
+          badge: false
+        })
+      })
+
       //2. push that object to the "dataArray" array defined on line 45.
 
-      $.each(function(){
-        dataArray.push({
-          date: dataArray.find('.date').val(),
-          title: dataArray.find('.title').val(),
-          badge: false,
-        });
-      });
-      
+      dataArray.push();
+    
+
+   
 
       var replace = $("<img class='size'>");
       var div = $("<div><button>View Info</div>");
@@ -136,9 +140,8 @@ var rest = {};
 //calling the API URL with the input value 
 $("#search").on("click", function (event) {
 	event.preventDefault();
-	
 	search = $("#location").val().trim();
-	url = "http://app.ticketmaster.com/discovery/v2/events.json?city=" +
+	url = "https://app.ticketmaster.com/discovery/v2/events.json?city=" +
 		search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
 	$.get(url).then(function (response) {
 		success(response);
@@ -146,7 +149,6 @@ $("#search").on("click", function (event) {
 		$("#location").empty();
 	});
 });
-
 async function success(response) {
 	//adding the event to the DOM 
 	for (var i = 0; i < response._embedded.events.length; i++) {
@@ -182,7 +184,38 @@ async function success(response) {
 		
 	}
 
-}
+}	
 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAzCJ1xHFQKflQB7B88p2-kStszJX3WJ8o",
+    authDomain: "five-star-moments.firebaseapp.com",
+    databaseURL: "https://five-star-moments.firebaseio.com",
+    projectId: "five-star-moments",
+    storageBucket: "five-star-moments.appspot.com",
+    messagingSenderId: "602816166347"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+
+  $("#submit-button").on("click", function(event) {
+	  event.preventDefault();
+	  var contactName = $("#name").val().trim();
+	  var contactEmail = $("#email").val().trim();
+	  var contactMessage = $("#message").val().trim();
+
+
+	  var newContact = {
+		  name: contactName,
+		  email: contactEmail,
+		  message: contactMessage
+	  };
+	  database.ref().push(newContact);
+	  $("#name").val("");
+	  $("#email").val("");
+	  $("#message").val("");
+	
+  });
 
 });
