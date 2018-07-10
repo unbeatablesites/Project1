@@ -14,11 +14,7 @@ $(document).ready(function () {
     today: true,
     show_days: true,
     weekstartson: 0,
-    data: [{
-      date: '2018-07-07',
-      title: 'Make it work',
-      badge: 'false'
-    }],
+    data: dataArray,
     action: function () {
       // get the selected date
       var date = $('#' + this.id).data('date');
@@ -28,45 +24,6 @@ $(document).ready(function () {
       next: '<i class="fa fa-chevron-circle-right"></i>'
     }
   });
-
-
-  //calling the API URL with the input value 
-  $("#search").on("click", function (event) {
-    event.preventDefault();
-    search = $("#location").val().trim();
-    url = "http://app.ticketmaster.com/discovery/v2/events.json?city=" +
-      search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
-    $.get(url).done(function (response) {
-      success(response);
-    });
-  });
-  function success(response) {
-    debugger;
-    var dataArray = [];
-    //adding the event to the DOM 
-    for (var i = 0; i < response._embedded.events.length; i++) {
-      
-      //for each event in this loop, we want to do 2 things:
-      //1. build a data object that looks like this:
-      // {
-      //   date: '2018-07-07',
-      //   title: 'Frank is a ...',
-      //   badge: 'false'
-      // }
-      $.each(events[i], function(){
-        $("#my-calendar").data({
-          date:'',
-          title:'',
-          badge: false
-        })
-      })
-
-      //2. push that object to the "dataArray" array defined on line 45.
-
-      dataArray.push();
-    
-
-   
 
       var replace = $("<img class='size'>");
       var div = $("<div><button>View Info</div>");
@@ -133,6 +90,17 @@ $(document).ready(function () {
     // firebase.initializeApp(config);
 
   }
+  //calling the API URL with the input value 
+  $("#search").on("click", function (event) {
+    event.preventDefault();
+    search = $("#location").val().trim();
+    url = "http://app.ticketmaster.com/discovery/v2/events.json?city=" +
+      search + "&apikey=IVeW1wnw1EgrDASBp2QqlmxszcLjjEKy";
+    $.get(url).then(function (response) {
+      success(response);
+    });
+  });
+  
 //setting search variable for the API call to ticket master 
 var search = '';
 var url = "";
@@ -161,7 +129,8 @@ async function success(response) {
 		var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
 		var venue = response._embedded.events[i]._embedded.venues[0].name;
 		var eventID = (eventName + eventDate).replace(/\s+/g,"-").toLowerCase().toString();
-		eventID = eventID.replace(/[^\w\s]/gi, '');
+    eventID = eventID.replace(/[^\w\s]/gi, '');
+    var dataArray = [];
 		// $("#events").append("<div id=" + eventID + ">" + eventName + eventDate + eventPrice + "<img class='size' src=" + eventImage + "></div>");
 		$("#events").append("<div id=" + eventID + ">" +"<br>"+"<br>"+"<img class='size' src=" + eventImage + ">"+"<br>"+ eventName +"<br>"+venue +"<br>"+ eventDate +" "+"Ticket prices: $"+" "+eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "</div>");
 		var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
@@ -172,7 +141,19 @@ async function success(response) {
 			var resName = res[j].name;
 			var resURL = res[j].url;
 			var number = j;
-			var space = "<p>";
+      var space = "<p>";
+      
+      // add events to the calendar
+      $.each(response._embedded.events[i], function(){
+        $("#my-calendar").data({
+          date: response._embedded.events[i].dates.start.dateTime,
+          title:response._embedded.events[i].name,
+          badge: false
+        })
+      })
+      // push the data
+      dataArray.push();
+      
 		
 			var a = "#" + eventID;
 			//a.replace(/\s+/g,"-").toLowerCase();
