@@ -323,12 +323,15 @@ input, select, textarea {
 
 		@media screen and (max-width: 480px) {
 
+
+
 				#stars{
 					display: none;
 				}
 		
 			
 				.container {
+
 				width: 100% !important;
     			margin-left: 0;
 			}
