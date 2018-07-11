@@ -40,6 +40,7 @@ button{
 
 .pa{
 	margin: 12px 0 1em 0;
+
 }
 
 ol, ul {
@@ -200,6 +201,7 @@ input, select, textarea {
 	h4 {
 		font-size: 0.9em;
 		line-height: 1.5em;
+		bottom: -85px;
 	}
 
 	h5 {
@@ -281,6 +283,7 @@ input, select, textarea {
 		margin: 0 auto;
 		max-width: calc(100% - 4em);
 		width: 65em;
+		position: relative;
 	}
 
 		.container.xsmall {
@@ -316,10 +319,22 @@ input, select, textarea {
 
 		}
 
+		
+
+
 		@media screen and (max-width: 480px) {
 
-			.container {
+
+
+				#stars{
+					display: none;
+				}
+		
+			
+				.container {
+
 				width: 100% !important;
+    			margin-left: 0;
 			}
 
 		}
@@ -2823,7 +2838,7 @@ input, select, textarea {
 				font-size: 3em;
 				line-height: 1.25em;
 				margin: 0;
-				top: 162px;			}
+				top: 34px;			}
 
 				#header header h1:after {
 					margin-top: 0.5em;
@@ -2844,7 +2859,7 @@ input, select, textarea {
     position: static;
     /* margin-left: -17.5em; */
    			padding: 2.5em;
-    		position: static;
+    		position: relative;
 		}
 
 			#header .container > :last-child {
@@ -2950,12 +2965,12 @@ input, select, textarea {
 		/* Header */
 
 			#header header {
-				padding-bottom: 9em;
+				padding-bottom: 12em;
 				width: 80%;
 			}
 
 			#header .container {
-			 margin-top: -22px;
+			  margin-top: -200px;
 			}
 
 		/* Footer */
@@ -2991,6 +3006,7 @@ input, select, textarea {
 
 			.main .container {
 				padding: 3em 1.5em 1em 1.5em ;
+				margin-top: 128px;
 			}
 
 				.main .container .image.primary:first-child {
@@ -3024,6 +3040,7 @@ input, select, textarea {
 					}
 
 				#header .container {
+					    margin-top: 21px;
 					/*display: none;*/
 				}
 
@@ -3037,7 +3054,13 @@ input, select, textarea {
 
 /* XSmall */
 
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 500px) {
+
+
+
+		#stars{
+					display: none;
+				}
 
 		/* Basic */
 
@@ -3115,10 +3138,13 @@ input, select, textarea {
 					padding-left: 0;
 				}
 
-		/* Main */
+		/* Main */#stars{
+					display: none;
+				}
 
 			.main .container {
 				padding: 3em 1em 1em 1em ;
+				margin-top: -175px;
 			}
 
 				.main .container .image.primary:first-child {
