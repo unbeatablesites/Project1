@@ -5,8 +5,8 @@ var url = "";
 var rest = {};
 //calling the API URL with the input value 
 $("#search").on("click", function (event) {
-	window.location = "file:///Users/frankuzoka/Desktop/Proj/Project1/index.html#three";
 	event.preventDefault();
+	window.location = "file:///Users/frankuzoka/Desktop/Proj/Project1/index.html#three";
 	search = $("#location").val().trim();
 	if (search === "") {
 		
