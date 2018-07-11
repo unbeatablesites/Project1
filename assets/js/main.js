@@ -24,6 +24,7 @@ $("#search").on("click", function (event) {
 	}
 });
 async function success(response) {
+	console.log(response);
 	//validate user input
 	if (($.isNumeric(search)) && (search.length >= 5)) {
 		window.stop();
@@ -69,7 +70,7 @@ async function success(response) {
 			$("#events").append("<div class='row mx-auto'><h1 id='event-title' class='col-12'>" + eventName + 
 			"</h1></div><div class='row mx-auto'><div class='col-lg-6 col-sm-12'><img class='size' src=" + 
 			eventImage + "></div><div class='col-lg-6 col-sm-12' id=" + eventID + "> <br>" + venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + 
-			buyTicket + ">" +"BuyTicket" +"</a>"+ "<h1>Restaurants Nearby</h1>" + "</div></div>");
+			buyTicket + " target='_blank'>" +"BuyTicket" +"</a>"+ "<h1>Restaurants Nearby</h1>" + "</div></div>");
 
 			
 			var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
@@ -82,10 +83,10 @@ async function success(response) {
 				var space = "<p>";
 				var a = "#" + eventID;
 				a.replace(/\s+/g,"-").toLowerCase()  
-				$(a).append("<p><a href=" + resURL + ">" + resName +"</a></p>");     
+				$(a).append("<p><a href=" + resURL + " target='_blank'>" + resName +"</a></p>");     
 			};
 		}
-
+		
 	}
 
 }	
