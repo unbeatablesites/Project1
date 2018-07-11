@@ -1,8 +1,31 @@
-
 //setting search variable for the API call to ticket master 
 var search = '';
 var url = "";
 var rest = {};
+
+
+$(document).ready(function () {
+    $("#my-calendar").zabuto_calendar({
+        language: "en",
+        today: true,
+        year: 2018,
+        month: 7,
+        show_previous: false,
+        show_next: 48,
+        cell_border: true,
+        show_days: true,
+        weekstartson: 0,
+        action: function () {
+            // get the selected date
+            var date = $('#' + this.id).data('date');
+          },
+          nav_icon: {
+            prev: '<i class="fa fa-chevron-circle-left"></i>',
+            next: '<i class="fa fa-chevron-circle-right"></i>'
+          }
+    });
+
+});
 
 //calling the API URL with the input value 
 $("#search").on("click", function (event) {
@@ -85,27 +108,6 @@ async function success(response) {
 
 }	
 
-// Zabuto Calendar
-$("#my-calendar").zabuto_calendar({
-    language: "en",
-    year: 2018,
-    month: 7,
-    show_previous: false,
-    show_next: 36,
-    cell_border: true,
-    today: true,
-    show_days: true,
-    weekstartson: 0,
-    action: function () {
-      // get the selected date
-      var date = $('#' + this.id).data('date');
-    },
-    nav_icon: {
-      prev: '<i class="fa fa-chevron-circle-left"></i>',
-      next: '<i class="fa fa-chevron-circle-right"></i>'
-    }
-  });
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyAzCJ1xHFQKflQB7B88p2-kStszJX3WJ8o",
@@ -137,5 +139,3 @@ $("#submit-button").on("click", function(event) {
 	  $("#message").val("");
 	
 });
-
-  
