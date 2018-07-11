@@ -5,6 +5,8 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="icon" href="images/star-favicon.jpg">
+
 	<script>
       var map;
       function initMap() {
@@ -51,7 +53,7 @@
 		<div class="container">
 			<div class="content">
 				<header class="major">
-					<h2>Event Section</h2>
+						<h2 id="section-label">See whats happening</h2><h1 id="events-label"></h1>
 				</header>
 				<div id="events">
 
@@ -79,7 +81,7 @@
 					<div class="col-12">
 						<ul class="actions special">
 							<li>
-								<input type="submit" value="Send Message" class="primary" />
+								<input id="submit-button" type="submit" value="Send Message" class="primary" />
 							</li>
 						</ul>
 					</div>
@@ -116,6 +118,7 @@
 			</ul>
 		</footer>
 	</section>
+	<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -123,7 +126,6 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA_urEtrwCR3lJ-_dOOHyHnwCkNqptFSA&callback=initMap"
     async defer></script>
