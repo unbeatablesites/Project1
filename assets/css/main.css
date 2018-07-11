@@ -266,6 +266,9 @@ input, select, textarea {
 			padding: 1em 1.5em;
 			overflow-x: auto;
 		}
+		#event-title {
+			background-color: #b1b5a8;		
+		}
 
 	.align-left {
 		text-align: left;
