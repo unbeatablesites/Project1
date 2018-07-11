@@ -785,6 +785,7 @@ input, select, textarea {
 
 					.row > * {
 						padding: 0 0 0 1.5em;
+						min-width: 20em;
 					}
 
 					.row.gtr-uniform {
