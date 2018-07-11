@@ -66,7 +66,10 @@ async function success(response) {
 			//var shortName = $.trim(eventName).substring(0, 50).split(" ").slice(0, -1).join(" ") + "...";
 			eventID = eventID.replace(/[^\w\s]/gi, '');
 
-			$("#events").append("<div class='row mx-auto'><h1 id='event-title' class='col-12'>" + eventName + "</h1></div><div class='row mx-auto'><div class='col-lg-6 col-sm-12'><img class='size' src=" + eventImage + "></div><div class='col-lg-6 col-sm-12' id=" + eventID + ">"+ "<h1>" + eventName + "</h1>" + "<br>" + venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + buyTicket + ">" +"BuyTicket" +"</a>"+ "<h1>Restaurants Nearby</h1>" + "</div></div>");
+			$("#events").append("<div class='row mx-auto'><h1 id='event-title' class='col-12'>" + eventName + 
+			"</h1></div><div class='row mx-auto'><div class='col-lg-6 col-sm-12'><img class='size' src=" + 
+			eventImage + "></div><div class='col-lg-6 col-sm-12' id=" + eventID + "> <br>" + venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + 
+			buyTicket + ">" +"BuyTicket" +"</a>"+ "<h1>Restaurants Nearby</h1>" + "</div></div>");
 
 			
 			var queryURL = "https://gt-yelp-api.herokuapp.com/api/" + lat + "/" + lng;
