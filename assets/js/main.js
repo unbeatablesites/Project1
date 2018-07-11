@@ -6,6 +6,7 @@ var rest = {};
 //calling the API URL with the input value 
 $("#search").on("click", function (event) {
 	event.preventDefault();
+	on();
 	search = $("#location").val().trim();
 	if (search === "") {
 		
@@ -68,7 +69,7 @@ async function success(response) {
 
 			$("#events").append("<div class='row mx-auto'><h1 id='event-title' class='col-12'>" + eventName + 
 			"</h1></div><div class='row mx-auto'><div class='col-lg-6 col-sm-12'><img class='size' src=" + 
-			eventImage + "></div><div class='col-lg-6 col-sm-12' id=" + eventID + "> <br>" + venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + 
+			eventImage + "></div><div class='col-lg-6 col-sm-12 details' id=" + eventID + "> <br>" + venue +"<br>"+ eventDate + " " + eventPrice +"<br>"+"<a class="+"redLink"+" href=" + 
 			buyTicket + ">" +"BuyTicket" +"</a>"+ "<h1>Restaurants Nearby</h1>" + "</div></div>");
 
 			
@@ -121,5 +122,15 @@ $("#submit-button").on("click", function(event) {
 	  $("#message").val("");
 	
 });
+function on() {
+	document.getElementById("overlay").style.display = "block";
+	setTimeout( function(){ 
+		$(".alert-message")
+		off()
+	  }  , 4000 );
+}
 
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
   
