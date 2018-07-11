@@ -121,6 +121,4 @@ $("#submit-button").on("click", function(event) {
 	  $("#email").val("");
 	  $("#message").val("");
 	
-});
-
-  
+}); 
