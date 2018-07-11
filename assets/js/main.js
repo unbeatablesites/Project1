@@ -3,7 +3,7 @@ var search = '';
 var url = "";
 var rest = {};
 
-
+// init calendar
 $(document).ready(function () {
     $("#my-calendar").zabuto_calendar({
         language: "en",
@@ -15,6 +15,7 @@ $(document).ready(function () {
         cell_border: true,
         show_days: true,
         weekstartson: 0,
+        data:dataArray,
         action: function () {
             // get the selected date
             var date = $('#' + this.id).data('date');
@@ -71,7 +72,11 @@ async function success(response) {
 		$("#location").val("");
 		$("#section-label").html("<h1>Upcoming events in</h1>")
 		$("#events-label").html("<h2> " + search + "</h2>");
-		//adding the event to the DOM 
+        //adding the event to the DOM 
+        
+        var dataArray = [];
+
+
 		for (var i = 0; i < response._embedded.events.length; i++) {
 			var eventName = response._embedded.events[i].name;
 			var buyTicket = response._embedded.events[i].url;
@@ -107,6 +112,15 @@ async function success(response) {
 	}
 
 }	
+
+var dataArray = [];
+
+$(document).ready(function () {
+    $("#my-calendar").zabuto_calendar({
+      // PUSHH THE DATA
+      // ............
+    });
+  });
 
 // Initialize Firebase
 var config = {
