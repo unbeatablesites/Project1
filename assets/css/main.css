@@ -27,6 +27,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+#event-title {
+	text-align: center;
+}
 
 button{
 	float: right;
@@ -263,6 +266,9 @@ input, select, textarea {
 			line-height: 1.75em;
 			padding: 1em 1.5em;
 			overflow-x: auto;
+		}
+		#event-title {
+			background-color: #b1b5a8;		
 		}
 
 	.align-left {
@@ -783,6 +789,7 @@ input, select, textarea {
 
 					.row > * {
 						padding: 0 0 0 1.5em;
+						min-width: 20em;
 					}
 
 					.row.gtr-uniform {
@@ -3144,7 +3151,7 @@ input, select, textarea {
 
 			.main .container {
 				padding: 3em 1em 1em 1em ;
-				margin-top: -175px;
+				margin-top: -53px;
 			}
 
 				.main .container .image.primary:first-child {
