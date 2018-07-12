@@ -26,7 +26,6 @@ $("#search").on("click", function (event) {
 	}
 });
 async function success(response) {
-	console.log(response);
 	//validate user input
 	if (($.isNumeric(search)) && (search.length >= 5)) {
 		window.stop();
@@ -123,7 +122,6 @@ $("#submit-button").on("click", function(event) {
 	  $("#email").val("");
 	  $("#message").val("");
 	
-<<<<<<< HEAD
 });
 function on() {
 	document.getElementById("overlay").style.display = "block";
@@ -137,6 +135,3 @@ function off() {
     document.getElementById("overlay").style.display = "none";
 }
   
-=======
-}); 
->>>>>>> a0b6e05dddfed058492c4c1a6e2685f1abeb8a1b
