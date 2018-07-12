@@ -6,29 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="icon" href="images/star-favicon.jpg">
-
-	<script>
-      var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 33.7490, lng: -84.386330},
-          zoom: 14
-        });
-      }
-    </script>
-    <style type="text/css">
-    	#map{ height: 400px;
-    	}
-    </style>
 </head>
 
 <body class="is-preload">
-	<!-- Frank Test -->
 	<!-- Header -->
 	<div id="overlay"></div>
 	<section id="header">
 		<header class="major">
-			<h1>Five Star Moment</h1>
+			<section id="two" class="main special" >
+				</section>
+			<h1 id="#three">Five Star Moment</h1>
 			<h4>An app designed to provide five star moments for out of town travelers.</h4>
 			<marquee behavior="slide" direction="up" id="stars">
 				<img class="stars" src="images/starGIF.gif" width="100" height="100" alt="star">
@@ -43,7 +30,7 @@
 				<div class="form-group">
 					<label> </label>
 					<input type="location" class="form-control" id="location" aria-describedby="emailHelp" placeholder="Enter City">
-					<button type="submit" class="button primary scrolly" id="search">Search</button>
+					<button class="button primary scrolly" id="search">Search</button>
 				</div>
 				
 			</form>
@@ -82,7 +69,11 @@
 					<div class="col-12">
 						<ul class="actions special">
 							<li>
-								<input id="submit-button" type="submit" value="Send Message" class="primary" />
+
+								<input id="submit-button" type="submit" value="Send Message" class="primary"/>
+								<br>
+								<a href="#top" class="goto-next scrolly">Go to top</a>
+
 							</li>
 						</ul>
 					</div>
@@ -128,7 +119,5 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBA_urEtrwCR3lJ-_dOOHyHnwCkNqptFSA&callback=initMap"
-    async defer></script>
 	</body>
 </html>
