@@ -6,6 +6,7 @@ var rest = {};
 //calling the API URL with the input value 
 $("#search").on("click", function (event) {
 	event.preventDefault();
+	on();
 	search = $("#location").val().trim();
 	window.location = "https://unbeatablesites.github.io/Project1/index.html#three";
 	if (search === "") {
@@ -65,7 +66,6 @@ async function success(response) {
 			var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
 			var venue = response._embedded.events[i]._embedded.venues[0].name;
 			var eventID = (eventName + eventDate + [i]).replace(/\s+/g,"-").toLowerCase().toString();
-			//var shortName = $.trim(eventName).substring(0, 50).split(" ").slice(0, -1).join(" ") + "...";
 			eventID = eventID.replace(/[^\w\s]/gi, '');
 
 			$("#events").append("<div class='row mx-auto'><h1 id='event-title' class='col-12'>" + eventName + 
@@ -122,4 +122,17 @@ $("#submit-button").on("click", function(event) {
 	  $("#email").val("");
 	  $("#message").val("");
 	
-}); 
+
+});
+function on() {
+	document.getElementById("overlay").style.display = "block";
+	setTimeout( function(){ 
+		$(".alert-message")
+		off()
+	  }  , 4000 );
+}
+
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+  
