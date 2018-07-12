@@ -431,7 +431,7 @@ input, select, textarea {
 		}
 
 		.row > .col-6 {
-			width: 50%;
+			
 			padding: 1em;
 		}
 
@@ -1274,7 +1274,7 @@ input, select, textarea {
 
 				.row {
 					margin-top: 0;
-					margin-left: -1em;
+					margin-left: 1em;
 				}
 
 					.row > * {
@@ -1519,7 +1519,7 @@ input, select, textarea {
 
 				.row {
 					margin-top: 0;
-					margin-left: -1em;
+					margin-left: 1em;
 				}
 
 					.row > * {
@@ -3150,7 +3150,7 @@ input, select, textarea {
 
 			.main .container {
 				padding: 3em 1em 1em 1em ;
-				margin-top: -53px;
+				    margin-top: 4px;
 			}
 
 				.main .container .image.primary:first-child {
