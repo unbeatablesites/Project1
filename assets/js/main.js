@@ -65,7 +65,6 @@ async function success(response) {
 			var lat = response._embedded.events[i]._embedded.venues[0].location.latitude;
 			var venue = response._embedded.events[i]._embedded.venues[0].name;
 			var eventID = (eventName + eventDate + [i]).replace(/\s+/g,"-").toLowerCase().toString();
-			//var shortName = $.trim(eventName).substring(0, 50).split(" ").slice(0, -1).join(" ") + "...";
 			eventID = eventID.replace(/[^\w\s]/gi, '');
 
 			$("#events").append("<div class='row mx-auto'><h1 id='event-title' class='col-12'>" + eventName + 
