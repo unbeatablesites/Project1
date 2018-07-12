@@ -6,8 +6,8 @@ var rest = {};
 //calling the API URL with the input value 
 $("#search").on("click", function (event) {
 	event.preventDefault();
-	window.location = "https://unbeatablesites.github.io/Project1/index.html#three";
 	search = $("#location").val().trim();
+	window.location = "https://unbeatablesites.github.io/Project1/index.html#three";
 	if (search === "") {
 		
 		$("#location").val("");
