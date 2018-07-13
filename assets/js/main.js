@@ -7,7 +7,7 @@ var rest = {};
 $("#search").on("click", function (event) {
 	event.preventDefault();
 	search = $("#location").val().trim();
-	window.location = "https://unbeatablesites.github.io/Project1/index.html#three";
+	window.location = "file:///Users/frankuzoka/Desktop/Proj/Project1/index.html#three";
 	if (search === "") {
 		
 		$("#location").val("");
